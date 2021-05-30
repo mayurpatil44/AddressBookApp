@@ -26,6 +26,49 @@
                     <a href="../pages/home.html"><img class="cancel-img" src="../assets/images/cancel.jpeg" alt="cancel"></a>
                 </div>
             </div>
+            <div class="row-content">
+                <label class="label text" for="name">Full Name</label>
+                <input class="input" id="name" name="name" type="text" required/>
+                <error-output class="text-error" for="name"></error-output>
+            </div>
+
+            <div class="row-content address-label">
+                <label class="label text" for="address">Address</label>
+                <textarea class="input address-text" id="address" name="address" placeholder=""> </textarea>
+                <error-output class="address-error" for="address"></error-output>
+            </div>
+            <div class="select-box">
+                <div name="city" id="city" class="city">
+                    <label for="city" class="label text">City</label>
+                    <select class="select" name="city" id="city">
+                        <option selected disabled>Select City</option>
+                        <option value="Vns">Tirupati</option>
+                        <option value="Gzd">Nellore</option>
+                        <option value="Blr">Bangalore</option>
+                        <option value="Gkp">Hyderabad</option>
+                        <option value="Del">Chennai</option>
+                    </select>
+                </div>
+                <div name="state" id="state" class="state">
+                    <label for="state" class="label text">State</label>
+                    <select class="select" name="state" id="state">
+                        <option selected disabled>Select State</option>
+                        <option value="UP">Andhra Pradesh</option>
+                        <option value="KA">Karnataka</option>
+                        <option value="BP">Telangana</option>
+                        <option value="Mg">Tamil Nadu</option>
+                    </select>
+                </div>
+                <div name="zip" id="zip" class="zip">
+                    <label for="zip" class="label text">Zip Code</label>
+                    <input class="select" type="number" name="zip" id="zip">
+                </div>
+            </div>
+            <div class="row-content">
+                <label class="label text" for="phoneNo">Phone Number</label>
+                <input class="input" id="phoneNo" name="phoneNo" type="number" required>
+                <error-output class="phoneNo-error" for="phoneNo"></error-output>
+            </div>
         </form>
     </div>
 </body>
