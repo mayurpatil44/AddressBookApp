@@ -11,7 +11,7 @@
 <body>
     <header class="header-content header">
         <div class="logo-content">
-            <img src="../assets/images/addressbook.jpeg" alt="">
+            <img src="../assets/images/addressbook.jpeg" alt="Logo">
             <div>
                 <span class="add-text">ADDRESS</span><br>
                 <span class="add-text address-book">BOOK</span>
@@ -32,9 +32,9 @@
                 <error-output class="text-error" for="name"></error-output>
             </div>
 
-            <div class="row-content address-label">
+            <div class="row-content">
                 <label class="label text" for="address">Address</label>
-                <textarea class="input address-text" id="address" name="address" placeholder=""> </textarea>
+                <textarea class="input" id="address" name="address" placeholder="" style="height: 50px;"> </textarea>
                 <error-output class="address-error" for="address"></error-output>
             </div>
             <div class="select-box">
@@ -42,21 +42,21 @@
                     <label for="city" class="label text">City</label>
                     <select class="select" name="city" id="city">
                         <option selected disabled>Select City</option>
-                        <option value="Vns">Tirupati</option>
-                        <option value="Gzd">Nellore</option>
+                        <option value="Tpt">Tirupati</option>
+                        <option value="Nlr">Nellore</option>
                         <option value="Blr">Bangalore</option>
-                        <option value="Gkp">Hyderabad</option>
-                        <option value="Del">Chennai</option>
+                        <option value="Hyd">Hyderabad</option>
+                        <option value="Ch">Chennai</option>
                     </select>
                 </div>
                 <div name="state" id="state" class="state">
                     <label for="state" class="label text">State</label>
                     <select class="select" name="state" id="state">
                         <option selected disabled>Select State</option>
-                        <option value="UP">Andhra Pradesh</option>
+                        <option value="AP">Andhra Pradesh</option>
                         <option value="KA">Karnataka</option>
-                        <option value="BP">Telangana</option>
-                        <option value="Mg">Tamil Nadu</option>
+                        <option value="TS">Telangana</option>
+                        <option value="TN">Tamil Nadu</option>
                     </select>
                 </div>
                 <div name="zip" id="zip" class="zip">
@@ -66,10 +66,12 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="phoneNo">Phone Number</label>
-                <input class="input" id="phoneNo" name="phoneNo" type="number" required>
+                <input class="input" id="phoneNo" name="phoneNo" type="text" required>
                 <error-output class="phoneNo-error" for="phoneNo"></error-output>
             </div>
         </form>
     </div>
+    <script src="../js/adressBook_form.js"></script>
+    <script src="../js/AddressBookData.js"></script>
 </body>
 </html>
