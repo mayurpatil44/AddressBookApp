@@ -23,7 +23,7 @@ class AddressBookData {
     }
     set address(address) {
         let sentence = address.split(" ");
-        const addressRegex = /^([A-Za-z0-9/,-]{3,}[ ]?)+$/;
+        const addressRegex = /^([A-Za-z0-9()/,-.]{3,}[ ]?)+$/;
         for (const word of sentence) {
             if (!addressRegex.test(word))
                 throw "Address is Incorrect";
