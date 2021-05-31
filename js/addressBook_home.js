@@ -22,7 +22,7 @@ const createInnerHtml = () => {
     <td>${contact._zip}</td>
     <td>${contact._phoneNumber}</td>
     <td>
-        <img id="${contact._id}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
+        <img id="${contact._name}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
         <img id="${contact._id}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
     </td>
  </tr>
@@ -30,3 +30,13 @@ const createInnerHtml = () => {
     }
     document.querySelector("#display").innerHTML = innerHtml;
 };
+
+const remove = (node) => {
+    let personData = addressBookList.find(data => data._name == node.id);
+    if (!personData) return;
+    const index = addressBookList.map(data => data._name).indexOf(personData._name);
+    addressBookList.splice(index, 1);
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookList));
+    document.querySelector(".person-count").textContent = addressBookList.length;
+    createInnerHtml();
+}
