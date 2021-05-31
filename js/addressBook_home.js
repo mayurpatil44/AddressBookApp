@@ -1,11 +1,17 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+    addressBookList = getAddressBookDataFromStorage();
+    document.querySelector(".person-count").textContent = addressBookList.length;
     createInnerHtml();
 });
 
+const getAddressBookDataFromStorage = () => {
+    return localStorage.getItem('AddressBookList') ? JSON.parse(localStorage.getItem('AddressBookList')) : [];
+}
+
 const createInnerHtml = () => {
     const headerHtml = "<tr><th>Fullname</th><th>Address</th><th>City</th><th>State</th><th>Zip Code</th><th>Phone Number</th><th></th></tr>"
+    if (addressBookList.length == 0) return;
     let innerHtml = `${headerHtml}`
-    let addressBookList = createAddressBookJSON();
     for (const contact of addressBookList) {
         innerHtml = `${innerHtml}
     <tr>
@@ -23,26 +29,4 @@ const createInnerHtml = () => {
     `;
     }
     document.querySelector("#display").innerHTML = innerHtml;
-};
-
-const createAddressBookJSON = () => {
-    let addressBookListLocal = [{
-            _name: "Mayur",
-            _address: "Songir",
-            _city: "Dhule",
-            _state: "Maharashtra",
-            _zip: "424002",
-            _phoneNumber: "7620107982"
-
-        },
-        {
-            _name: "Hemant",
-            _address: "Songit",
-            _city: "Nashik",
-            _state: "Maharashtra",
-            _zip: "424002",
-            _phoneNumber: "8888451231"
-        }
-    ];
-    return addressBookListLocal;
 };

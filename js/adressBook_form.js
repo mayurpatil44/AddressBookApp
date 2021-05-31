@@ -130,3 +130,8 @@ const setaddressBookJSONObject = () => {
     addressBookJSONObject._phoneNumber = getInputValueById('#phoneNo');
     alert("Added Json Object : " + addressBookJSONObject._name);
 };
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
