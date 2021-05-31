@@ -1,4 +1,6 @@
 let addressBookJSONObject = {};
+let isUpdate = false;
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const name = document.querySelector('#name');
     const nameOutput = document.querySelector('.text-error');
@@ -46,6 +48,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             phoneOutput.textContent = e;
         }
     });
+    checkForUpdate();
 });
 
 const saveForm = () => {
@@ -112,7 +115,7 @@ const resetForm = () => {
 }
 
 const setValue = (id, value) => {
-    const element = document.getElementById(id);
+    const element = document.querySelector(id);
     element.value = value;
 }
 
@@ -121,7 +124,7 @@ const setSelectedIndex = (id, index) => {
     element.selectedIndex = index;
 };
 
-const setaddressBookJSONObject = () => {
+const getaddressBookJSONObject = () => {
     addressBookJSONObject._name = getInputValueById('#name');
     addressBookJSONObject._address = getInputValueById('#address');
     addressBookJSONObject._city = getInputValueById('#city');
@@ -135,3 +138,20 @@ const setTextValue = (id, value) => {
     const element = document.querySelector(id);
     element.textContent = value;
 }
+
+const checkForUpdate = () => {
+    const addressBookJson = localStorage.getItem("editAddress");
+    isUpdate = addressBookJson ? true : false;
+    if (!isUpdate) return;
+    addressBookJSONObject = JSON.parse(addressBookJson);
+    setForm();
+};
+
+const setForm = () => {
+    setValue("#name", addressBookJSONObject._name);
+    setValue("#address", addressBookJSONObject._address);
+    setValue("#City", addressBookJSONObject._city);
+    setValue("#State", addressBookJSONObject._state);
+    setValue("#Zip", addressBookJSONObject._zip);
+    setValue("#phoneNo", addressBookJSONObject._phoneNumber);
+};

@@ -1,3 +1,4 @@
+let addressBookList;
 window.addEventListener("DOMContentLoaded", (event) => {
     addressBookList = getAddressBookDataFromStorage();
     document.querySelector(".person-count").textContent = addressBookList.length;
@@ -23,7 +24,7 @@ const createInnerHtml = () => {
     <td>${contact._phoneNumber}</td>
     <td>
         <img id="${contact._name}" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-        <img id="${contact._id}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
+        <img id="${contact._name}" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
     </td>
  </tr>
     `;
@@ -40,3 +41,10 @@ const remove = (node) => {
     document.querySelector(".person-count").textContent = addressBookList.length;
     createInnerHtml();
 }
+
+const update = (node) => {
+    let personData = addressBookList.find(data => data._name == node.id);
+    if (!personData) return;
+    localStorage.setItem("editAddress", JSON.stringify(personData));
+    window.location.replace(site_properties.add_addressBook_page);
+};
