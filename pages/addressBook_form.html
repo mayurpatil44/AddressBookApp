@@ -19,7 +19,7 @@
         </div>
     </header>
     <div id="formId" class="form-content">
-        <form id="form" class="form" action="#" onreset="resetForm()" onsubmit="saveForm()">
+        <form id="form" class="form" action="#" onreset="resetForm()" onsubmit="saveForm(event)">
             <div class="form-head">
                 <div class="form-text">Person Address Form</div>
                 <div>
@@ -38,7 +38,7 @@
                 <error-output class="address-error" for="address"></error-output>
             </div>
             <div class="select-box">
-                <div name="city" id="city" class="city">
+                <div>
                     <label for="city" class="label text">City</label>
                     <select class="select" name="city" id="City">
                         <option selected disabled>Select City</option>
@@ -49,7 +49,7 @@
                         <option value="Chennai">Chennai</option>
                     </select>
                 </div>
-                <div name="state" id="state" class="state">
+                <div>
                     <label for="state" class="label text">State</label>
                     <select class="select" name="state" id="State">
                         <option selected disabled>Select State</option>
@@ -59,7 +59,7 @@
                         <option value="Tamil Nadu">Tamil Nadu</option>
                     </select>
                 </div>
-                <div name="zip" id="zip" class="zip">
+                <div>
                     <label for="zip" class="label text">Zip Code</label>
                     <input class="select" type="number" name="zip" id="Zip">
                 </div>
@@ -79,5 +79,6 @@
     </div>
     <script src="../js/adressBook_form.js"></script>
     <script src="../js/AddressBookData.js"></script>
+    <script src="../js/site_properties.js"></script>
 </body>
 </html>

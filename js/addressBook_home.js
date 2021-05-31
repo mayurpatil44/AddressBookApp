@@ -3,6 +3,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     addressBookList = getAddressBookDataFromStorage();
     document.querySelector(".person-count").textContent = addressBookList.length;
     createInnerHtml();
+    localStorage.removeItem("editAddress");
 });
 
 const getAddressBookDataFromStorage = () => {
